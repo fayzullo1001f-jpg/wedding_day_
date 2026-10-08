@@ -1,38 +1,1596 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+}
+.footer {
+    width: 100%;
+    height: 100vh;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.time_box {
+    width: 68px;
+    min-height: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(255, 253, 248, 0.75);
+    border: 1px solid rgba(205, 200, 187, 0.35);
+    border-radius: 14px;
+
+    box-shadow: 0 4px 15px rgba(180, 175, 160, 0.08);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.time_box strong {
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1;
+    color: #19146b;
 }
 
-.App-link {
-  color: #61dafb;
+.time_box span {
+    margin-top: 8px;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #05346e;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media (max-width: 480px) {
+    .timer {
+        gap: 8px;
+    }
+
+    .time_box {
+        width: 62px;
+        min-height: 68px;
+        border-radius: 12px;
+    }
+
+    .time_box strong {
+        font-size: 23px;
+    }
+
+    .time_box span {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+}
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    min-width: 320px;
+
+    font-family:
+            "Montserrat",
+            sans-serif;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #fff7ed 0%,
+                    #fdebd3 50%,
+                    #f7d7b5 100%
+            );
+
+    color: #3f2a20;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+
+/* =========================================================
+   MAIN APP
+========================================================= */
+
+.app {
+    width: 100%;
+
+    max-width: 420px;
+
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HERO
+   TWO.PNG FON
+========================================================= */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+
+    height: 100dvh;
+
+    min-height: 650px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background-image:
+            url("./img/two.png");
+
+    background-repeat: no-repeat;
+
+    background-position:
+            center center;
+
+    background-size:
+            cover;
+}
+
+
+/* =========================================================
+   HERO BEIGE OVERLAY
+========================================================= */
+
+.hero_overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    background: linear-gradient(
+            202deg,
+            rgb(255 244 221 / 15%) 0%,
+            rgb(244 215 178 / 10%) 35%,
+            rgb(222 178 134 / 8%) 65%,
+            rgb(102 62 38 / 12%) 100%
+    );
+
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+}
+
+/* =========================================================
+   HERO MARKAZIY YORUG'LIK
+========================================================= */
+
+.hero_glow {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+            radial-gradient(
+                    ellipse at center,
+
+                    rgba(
+                            255,
+                            250,
+                            239,
+                            0.45
+                    ) 0%,
+
+                    rgba(
+                            255,
+                            239,
+                            211,
+                            0.22
+                    ) 35%,
+
+                    rgba(
+                            255,
+                            228,
+                            192,
+                            0.08
+                    ) 58%,
+
+                    rgba(
+                            72,
+                            43,
+                            27,
+                            0.12
+                    ) 100%
+            );
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero_content {
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+
+    height: 100%;
+
+    padding:
+            30px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   TO'Y KUNI
+========================================================= */
+
+.wedding_date_top {
+    margin-bottom: 16px;
+
+    font-family:
+            "Montserrat",
+            sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    letter-spacing: 7px;
+
+    color:
+            #986039;
+
+    text-transform:
+            uppercase;
+
+    text-shadow:
+            0 1px 2px
+            rgba(
+                    255,
+                    255,
+                    255,
+                    0.95
+            ),
+
+            0 0 12px
+            rgba(
+                    255,
+                    234,
+                    204,
+                    0.9
+            );
+}
+
+
+/* =========================================================
+   ABROR / MUSLIMA
+========================================================= */
+
+.hero h1 {
+    margin: 0;
+
+    font-family:
+            "Great Vibes",
+            cursive;
+
+    font-size: 78px;
+
+    font-weight: 400;
+
+    line-height: 0.92;
+
+    color:
+            #a86b40;
+
+    text-shadow:
+
+        /* OQ YORUG'LIK */
+
+            0 1px 0
+            rgba(
+                    255,
+                    248,
+                    230,
+                    1
+            ),
+
+                /* SOYA */
+
+            0 3px 6px
+            rgba(
+                    83,
+                    47,
+                    27,
+                    0.25
+            ),
+
+                /* YUMSHOQ GOLD GLOW */
+
+            0 0 18px
+            rgba(
+                    255,
+                    232,
+                    201,
+                    0.85
+            );
+}
+
+
+/* =========================================================
+   & ROSE GOLD
+========================================================= */
+
+.wedding_and {
+    margin:
+            10px 0;
+
+    font-family:
+            "Playfair Display",
+            serif;
+
+    font-size: 34px;
+
+    font-style: italic;
+
+    color:
+            #c78570;
+
+    text-shadow:
+
+            0 1px 0
+            rgba(
+                    255,
+                    255,
+                    255,
+                    0.95
+            ),
+
+            0 2px 8px
+            rgba(
+                    119,
+                    65,
+                    45,
+                    0.22
+            ),
+
+            0 0 15px
+            rgba(
+                    255,
+                    216,
+                    196,
+                    0.9
+            );
+}
+
+
+/* =========================================================
+   SANA
+========================================================= */
+
+.wedding_date {
+    margin-top: 26px;
+
+    font-family:
+            "Playfair Display",
+            serif;
+
+    font-size: 18px;
+
+    font-weight: 500;
+
+    letter-spacing: 7px;
+
+    color:
+            #a96b45;
+
+    text-shadow:
+
+            0 1px 0
+            rgba(
+                    255,
+                    255,
+                    255,
+                    0.95
+            ),
+
+            0 0 12px
+            rgba(
+                    255,
+                    230,
+                    200,
+                    0.85
+            );
+}
+
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+.music_btn {
+    position: fixed;
+
+    right: 20px;
+    bottom: 25px;
+
+    z-index: 9999;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    background: rgba(91, 51, 27, 0.88);
+
+    border: 1px solid rgba(220, 170, 115, 0.75);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+            0 5px 20px rgba(55, 28, 15, 0.35),
+
+            0 0 20px rgba(180, 120, 70, 0.25),
+
+            inset 0 1px 0 rgba(255, 230, 195, 0.35);
+
+    transition: all 0.3s ease;
+}
+
+.music_btn:hover {
+    background: rgba(70, 36, 20, 0.95);
+
+    border-color: rgba(235, 190, 135, 0.9);
+
+    box-shadow:
+            0 8px 25px rgba(55, 28, 15, 0.45),
+
+            0 0 30px rgba(210, 155, 95, 0.4);
+}
+
+.music_btn img {
+    width: 23px;
+    height: 23px;
+
+    filter:
+            brightness(0)
+            invert(1)
+            sepia(0.15)
+            saturate(0.7);
+}
+
+
+@media (max-width: 420px) {
+
+    .music_btn {
+        right: 15px;
+        bottom: 20px;
+
+        width: 46px;
+        height: 46px;
+    }
+
+    .music_btn img {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+/* =========================================================
+   HERO TEXT SOFT EFFECT
+========================================================= */
+
+.wedding_date, .wedding_date_top {
+    color: black;
+}
+
+.hero h1,
+.wedding_and
+
+{
+    will-change:
+            transform,
+            opacity;
+
+    filter:
+            drop-shadow(
+                    0 2px 5px
+                    rgba(
+                            91,
+                            51,
+                            27,
+                            0.12
+                    )
+            );
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section {
+    margin:
+            20px;
+
+    padding:
+            30px 20px;
+
+    border-radius:
+            25px;
+
+    background:
+            linear-gradient(
+                    135deg,
+
+                    rgba(
+                            255,
+                            255,
+                            255,
+                            0.82
+                    ),
+
+                    rgba(
+                            255,
+                            237,
+                            220,
+                            0.70
+                    )
+            );
+
+    backdrop-filter:
+            blur(14px);
+
+    -webkit-backdrop-filter:
+            blur(14px);
+
+    box-shadow:
+
+            0 10px 25px
+            rgba(
+                    70,
+                    40,
+                    20,
+                    0.08
+            ),
+
+            0 20px 50px
+            rgba(
+                    70,
+                    40,
+                    20,
+                    0.12
+            ),
+
+            inset 0 1px 0
+            rgba(
+                    255,
+                    255,
+                    255,
+                    0.7
+            );
+
+    border:
+            1px solid
+            rgba(
+                    255,
+                    255,
+                    255,
+                    0.6
+            );
+
+    text-align:
+            center;
+
+    transition:
+            all 0.4s ease;
+
+    display:
+            flex;
+
+    flex-direction:
+            column;
+
+    justify-content:
+            center;
+
+    align-items:
+            center;
+
+    gap:
+            20px;
+}
+
+.section:hover {
+    transform:
+            translateY(-5px);
+}
+
+.section h2 {
+    font-family:
+            "Playfair Display",
+            serif;
+
+    color:
+            #7a3f2f;
+}
+
+.section p {
+    color:
+            #5c463b;
+
+    line-height:
+            1.8;
+}
+
+.sed {
+    min-height:
+            90vh;
+
+    justify-content:
+            space-around;
+}
+
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+.timer {
+    width:
+            100%;
+
+    padding:
+            10px 20px;
+
+    border-radius:
+            30px;
+
+
+
+    color:
+            white;
+
+    font-weight:
+            500;
+
+    font-size:
+            13px;
+
+    box-shadow:
+            0 5px 15px
+            rgba(
+                    143,
+                    84,
+                    62,
+                    0.25
+            );
+}
+
+
+/* =========================================================
+   IMAGES
+========================================================= */
+
+.restaurant,
+.ring {
+    width:
+            100%;
+
+    border-radius:
+            15px;
+}
+
+.cade {
+    width:
+            300px;
+
+    height:
+            200px;
+
+    border-radius:
+            20px;
+
+    object-fit:
+            cover;
+}
+
+
+/* =========================================================
+   IMAGE BORDER
+========================================================= */
+
+.border {
+    width:
+            300px;
+
+    height:
+            200px;
+
+    border-radius:
+            20px;
+
+    box-shadow:
+
+            0 8px 20px
+            rgba(
+                    0,
+                    0,
+                    0,
+                    0.1
+            ),
+
+            0 20px 40px
+            rgba(
+                    0,
+                    0,
+                    0,
+                    0.25
+            );
+
+    display:
+            flex;
+
+    justify-content:
+            center;
+
+    align-items:
+            center;
+
+    overflow:
+            hidden;
+}
+
+.img_bor {
+    width:
+            270px;
+
+    height:
+            170px;
+
+    border-radius:
+            20px;
+
+    object-fit:
+            cover;
+}
+
+
+/* =========================================================
+   MAP
+========================================================= */
+
+.map {
+    width:
+            100%;
+
+    height:
+            200px;
+
+    border-radius:
+            15px;
+
+    border:
+            none;
+}
+
+
+/* =========================================================
+   CALENDAR
+========================================================= */
+
+.calendar {
+    width:
+            100%;
+
+    display:
+            grid;
+
+    grid-template-columns:
+    repeat(7, 1fr);
+
+    gap:
+            8px;
+}
+
+.day {
+    padding:
+            10px 0;
+
+    border-radius:
+            50%;
+
+    background:
+            rgba(
+                    255,
+                    255,
+                    255,
+                    0.65
+            );
+
+    backdrop-filter:
+            blur(10px);
+
+    color:
+            #624538;
+
+    font-size:
+            14px;
+
+    transition:
+            0.3s;
+}
+
+.day:hover {
+    transform:
+            scale(1.1);
+
+    background:
+            #9b5f48;
+
+    color:
+            white;
+}
+
+.active_day {
+    background:
+            linear-gradient(
+                    135deg,
+                    #b9795b,
+                    #8f543e
+            );
+
+    color:
+            white;
+
+    font-weight:
+            bold;
+
+    box-shadow:
+
+            0 5px 15px
+            rgba(
+                    143,
+                    84,
+                    62,
+                    0.35
+            ),
+
+            0 0 20px
+            rgba(
+                    143,
+                    84,
+                    62,
+                    0.25
+            );
+
+    animation:
+            pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    0% {
+        box-shadow:
+                0 0 0 0
+                rgba(
+                        143,
+                        84,
+                        62,
+                        0.45
+                );
+    }
+
+    70% {
+        box-shadow:
+                0 0 0 12px
+                rgba(
+                        143,
+                        84,
+                        62,
+                        0
+                );
+    }
+
+    100% {
+        box-shadow:
+                0 0 0 0
+                rgba(
+                        143,
+                        84,
+                        62,
+                        0
+                );
+    }
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline {
+    width:
+            100%;
+
+    display:
+            flex;
+
+    flex-direction:
+            column;
+
+    gap:
+            10px;
+}
+
+.timeline_item {
+    display:
+            flex;
+
+    justify-content:
+            space-between;
+
+    align-items:
+            center;
+
+    gap:
+            10px;
+
+    padding:
+            10px 15px;
+
+    background:
+            #f8e4d5;
+
+    border-radius:
+            15px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    margin:
+            20px;
+
+    padding:
+            30px 20px;
+
+    border-radius:
+            25px;
+
+    text-align:
+            center;
+
+    display:
+            flex;
+
+    flex-direction:
+            column;
+
+    justify-content:
+            space-around;
+
+    align-items:
+            center;
+
+    gap:
+            20px;
+
+}
+
+.footer h1 {
+    font-family:
+            "Playfair Display",
+            serif;
+
+    color:
+            #7a3f2f;
+}
+
+.footer_img {
+    width:
+            200px;
+
+    height:
+            280px;
+
+    object-fit:
+            cover;
+
+    border-radius:
+            120px;
+}
+
+.footer p {
+    color:
+            #765d50;
+}
+
+
+/* =========================================================
+   FLOAT ANIMATION
+========================================================= */
+
+.img_bor,
+.restaurant,
+.ring,
+.footer_img,
+.cade {
+    animation:
+            float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0% {
+        transform:
+                translate3d(
+                        0,
+                        0,
+                        0
+                );
+    }
+
+    50% {
+        transform:
+                translate3d(
+                        0,
+                        -8px,
+                        0
+                );
+    }
+
+    100% {
+        transform:
+                translate3d(
+                        0,
+                        0,
+                        0
+                );
+    }
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+    position:
+            fixed;
+
+    inset:
+            0;
+
+    z-index:
+            9999;
+
+    width:
+            100vw;
+
+    height:
+            100dvh;
+
+    display:
+            flex;
+
+    justify-content:
+            center;
+
+    align-items:
+            center;
+
+    overflow:
+            hidden;
+
+    background:
+            #f7eee4;
+
+    pointer-events:
+            auto;
+}
+
+.intro_image {
+    position:
+            absolute;
+
+    width:
+            100vw;
+
+    height:
+            100dvh;
+
+    object-fit:
+            contain;
+
+    object-position:
+            center center;
+
+    display:
+            block;
+
+    pointer-events:
+            none;
+
+    user-select:
+            none;
+
+    -webkit-user-drag:
+            none;
+
+    background:
+            #f7eee4;
+}
+
+
+/* =========================================================
+   SEAL BUTTON
+========================================================= */
+
+.seal_button {
+    position:
+            absolute;
+
+    left:
+            50%;
+
+    top:
+            48%;
+
+    width:
+            105px;
+
+    height:
+            105px;
+
+    padding:
+            0;
+
+    margin:
+            0;
+
+    transform:
+            translate(
+                    -50%,
+                    -50%
+            );
+
+    border:
+            none;
+
+    border-radius:
+            50%;
+
+    background:
+            transparent;
+
+    z-index:
+            99999;
+
+    cursor:
+            pointer;
+
+    pointer-events:
+            auto;
+
+    -webkit-tap-highlight-color:
+            transparent;
+
+    touch-action:
+            manipulation;
+}
+
+.seal_button span {
+    display:
+            block;
+
+    width:
+            100%;
+
+    height:
+            100%;
+
+    border-radius:
+            50%;
+
+    background:
+            transparent;
+
+    pointer-events:
+            none;
+}
+
+.seal_button:active {
+    transform:
+            translate(
+                    -50%,
+                    -50%
+            )
+            scale(
+                    0.9
+            );
+}
+
+
+/* =========================================================
+   OPENING LIGHT
+========================================================= */
+
+.opening_light {
+    position:
+            fixed;
+
+    left:
+            50%;
+
+    top:
+            48%;
+
+    width:
+            20px;
+
+    height:
+            20px;
+
+    transform:
+            translate(
+                    -50%,
+                    -50%
+            )
+            scale(0);
+
+    border-radius:
+            50%;
+
+    z-index:
+            20;
+
+    pointer-events:
+            none;
+
+    opacity:
+            0;
+
+    background:
+            radial-gradient(
+                    circle,
+
+                    rgba(
+                            255,
+                            255,
+                            255,
+                            1
+                    ) 0%,
+
+                    rgba(
+                            255,
+                            248,
+                            235,
+                            0.98
+                    ) 15%,
+
+                    rgba(
+                            255,
+                            232,
+                            190,
+                            0.75
+                    ) 35%,
+
+                    rgba(
+                            255,
+                            210,
+                            130,
+                            0.35
+                    ) 55%,
+
+                    rgba(
+                            255,
+                            255,
+                            255,
+                            0
+                    ) 72%
+            );
+
+    box-shadow:
+
+            0 0 30px
+            rgba(
+                    255,
+                    255,
+                    255,
+                    0.9
+            ),
+
+            0 0 80px
+            rgba(
+                    255,
+                    220,
+                    150,
+                    0.8
+            ),
+
+            0 0 150px
+            rgba(
+                    255,
+                    235,
+                    190,
+                    0.7
+            );
+}
+
+.light_active {
+    animation:
+            openingLight
+            1.15s ease-out
+            forwards;
+}
+
+@keyframes openingLight {
+
+    0% {
+        width:
+                20px;
+
+        height:
+                20px;
+
+        opacity:
+                0.3;
+
+        transform:
+                translate(
+                        -50%,
+                        -50%
+                )
+                scale(0);
+    }
+
+    20% {
+        opacity:
+                1;
+    }
+
+    50% {
+        opacity:
+                1;
+    }
+
+    100% {
+        width:
+                2500px;
+
+        height:
+                2500px;
+
+        opacity:
+                1;
+
+        transform:
+                translate(
+                        -50%,
+                        -50%
+                )
+                scale(1);
+    }
+}
+
+
+/* =========================================================
+   INTRO FADE
+========================================================= */
+
+.intro_opening {
+    animation:
+            introFade
+            1.15s ease
+            forwards;
+}
+
+@keyframes introFade {
+
+    0% {
+        opacity:
+                1;
+    }
+
+    75% {
+        opacity:
+                1;
+    }
+
+    100% {
+        opacity:
+                0;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .hero {
+        width:
+                100vw;
+
+        height:
+                100dvh;
+
+        min-height:
+                650px;
+
+        background-size:
+                cover;
+
+        background-position:
+                center center;
+    }
+
+    .hero_overlay {
+        backdrop-filter:
+                blur(1.5px);
+
+        -webkit-backdrop-filter:
+                blur(1.5px);
+    }
+
+    .hero h1 {
+        font-size:
+                68px;
+    }
+
+    .wedding_date_top {
+        font-size:
+                10px;
+
+        letter-spacing:
+                5px;
+    }
+
+    .wedding_and {
+        font-size:
+                30px;
+    }
+
+    .wedding_date {
+        font-size:
+                16px;
+
+        letter-spacing:
+                5px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .seal_button {
+        width:
+                90px;
+
+        height:
+                90px;
+    }
+
+    .section {
+        margin:
+                15px;
+
+        padding:
+                25px 15px;
+    }
+
+    .border {
+        width:
+                270px;
+
+        height:
+                185px;
+    }
+
+    .img_bor {
+        width:
+                245px;
+
+        height:
+                155px;
+    }
+
+    .hero {
+        min-height:
+                600px;
+    }
+
+    .hero h1 {
+        font-size:
+                59px;
+    }
+
+    .wedding_and {
+        font-size:
+                27px;
+    }
+
+    .wedding_date {
+        font-size:
+                14px;
+
+        letter-spacing:
+                4px;
+    }
+
+    .wedding_date_top {
+        font-size:
+                9px;
+
+        letter-spacing:
+                4px;
+    }
 }
